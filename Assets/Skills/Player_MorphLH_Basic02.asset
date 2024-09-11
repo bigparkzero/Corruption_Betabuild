@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cf36357c2ba02f49887cf8599174983, type: 3}
+  m_Name: Player_MorphLH_Basic02
+  m_EditorClassIdentifier: 
+  _id: 0
+  _skill_name: Player_Basic01
+  _type: 0
+  _damage:
+    baseValue: 0
+    modifiers: []
+  _prefab_effect: {fileID: 8936467840393867234, guid: f8f6ea9eebd573644a0d8f5a22ecb63a,
+    type: 3}
+  _effect_position_index: 0
+  _rotation: {x: 0, y: 0, z: 0, w: 0}
+  _predelay: 0.15
+  _duration: 0.3
+  _cooldown: 0
+  _prefab_additionals: []
+  _chains: []
