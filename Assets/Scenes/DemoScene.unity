@@ -4059,7 +4059,7 @@ PrefabInstance:
         type: 3}
       propertyPath: OutputEvent.Array.data[0].m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1299179255}
+      objectReference: {fileID: 1299179256}
     - target: {fileID: 4980496061629943152, guid: 27cbb02dfa60ce04d9d801a44fd241d5,
         type: 3}
       propertyPath: OutputEvent.Array.data[0].m_PersistentCalls.m_Calls.Array.data[1].m_CallState
@@ -4068,12 +4068,12 @@ PrefabInstance:
     - target: {fileID: 4980496061629943152, guid: 27cbb02dfa60ce04d9d801a44fd241d5,
         type: 3}
       propertyPath: OutputEvent.Array.data[0].m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: CameraShakeing
+      value: GenerateImpulseWithForce
       objectReference: {fileID: 0}
     - target: {fileID: 4980496061629943152, guid: 27cbb02dfa60ce04d9d801a44fd241d5,
         type: 3}
       propertyPath: OutputEvent.Array.data[0].m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: CameraShake, Assembly-CSharp
+      value: Cinemachine.CinemachineImpulseSource, Cinemachine
       objectReference: {fileID: 0}
     - target: {fileID: 4980496061629943152, guid: 27cbb02dfa60ce04d9d801a44fd241d5,
         type: 3}
