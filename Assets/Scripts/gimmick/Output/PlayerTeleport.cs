@@ -6,7 +6,7 @@ public class PlayerTeleport : GimmickOutput
 {
     public PlayerMainController controller;
     public Transform PlayerTeleportPosition;
-    public override void Act()
+    public void Act()
     {
         controller.transform.position = PlayerTeleportPosition.position;
         isDone = true;

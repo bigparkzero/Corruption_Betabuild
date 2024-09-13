@@ -18,7 +18,7 @@ public class FadeIn_Out : GimmickOutput
         targetImage.gameObject.SetActive(false);
     }
 
-    public override void Act()
+    public void Act()
     {
         // targetImage가 할당되지 않은 경우 경고를 출력합니다.
         if (targetImage == null)

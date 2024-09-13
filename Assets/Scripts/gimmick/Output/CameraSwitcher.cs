@@ -5,7 +5,7 @@ public class CameraSwitcher : GimmickOutput
 {
     public CinemachineVirtualCameraBase cam;
 
-    public override void Act()
+    public void Act()
     {
         GimmickManager.Instance.SwitchToCamera(cam);
         isDone = true;

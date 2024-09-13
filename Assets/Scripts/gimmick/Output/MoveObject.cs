@@ -99,7 +99,7 @@ public class MoveObject : GimmickOutput
     }
 
     // 애니메이션을 시작하는 함수 (외부에서 호출)
-    public override void Act()
+    public void Act()
     {
         if (!isDone)
         {

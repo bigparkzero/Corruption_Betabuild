@@ -8,7 +8,7 @@ public class InstantiateObject : GimmickOutput
     public Transform parentPrefab;  // Canvas를 연결할 변수
     public GameObject prefab;
 
-    public override void Act()
+    public void Act()
     {
         if (parentPrefab == null)
         {

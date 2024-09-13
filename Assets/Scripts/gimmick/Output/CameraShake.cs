@@ -1,15 +1,13 @@
 using Cinemachine;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraShake : GimmickOutput
 {
-    public Vector3 Velocity;
-    public override void Act()
+    
+    public void CameraShakeing(float value)
     {
         CinemachineImpulseSource Shaker = GetComponent<CinemachineImpulseSource>();
-        Shaker.GenerateImpulse(Velocity);
+        Shaker.GenerateImpulse(new Vector3(Random.Range(-value, value), Random.Range(-value, value), Random.Range(-value, value)));
         isDone = true;
     }
 }

@@ -7,9 +7,9 @@ public class GimmickManager : Singleton<GimmickManager>
 {
     #region 카메라 전환
     public CinemachineFreeLook freeLookCamera;
-    public List<CinemachineVirtualCameraBase> allCameras = new List<CinemachineVirtualCameraBase>();
-    public int activeCameraPriority = 10;
-    public int inactiveCameraPriority = 0;
+    private List<CinemachineVirtualCameraBase> allCameras = new List<CinemachineVirtualCameraBase>();
+    private int activeCameraPriority = 10;
+    private int inactiveCameraPriority = 0;
 
     private CinemachineBrain brain;
     #endregion
@@ -63,3 +63,6 @@ public class GimmickManager : Singleton<GimmickManager>
 
    
 }
+
+
+

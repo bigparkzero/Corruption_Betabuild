@@ -9,7 +9,7 @@ public class FreezePlayer : GimmickOutput
 
     public bool isFreeze;
 
-    public override void Act()
+    public void Act()
     {
         if (isFreeze)
         {
