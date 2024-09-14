@@ -48,9 +48,10 @@ public class SoundManager : Singleton<SoundManager>
         inactiveSource = audioSource2;
     }
 
-    public void SetBGMvolume()
+    public void SetBGMvolume(float value)
     {
-        
+        activeSource.volume = value;
+        inactiveSource.volume = value;
     }
 
     public void SetFadeDuration(float value)
@@ -104,7 +105,7 @@ public class SoundManager : Singleton<SoundManager>
     {
         PlaySound(clip);
     }
-    public void SetBasicVolume(float volume)
+    public void SetSFXVolume(float volume)
     {
         basicvolume = volume;
     }
