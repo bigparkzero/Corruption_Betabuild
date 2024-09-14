@@ -5827,7 +5827,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InformationWindow: {fileID: 536503647}
   InformationWindowText: {fileID: 311891470}
-  basicduration: 1
+  basicduration: 0.5
   textruning: 0
 --- !u!1 &387058995
 GameObject:

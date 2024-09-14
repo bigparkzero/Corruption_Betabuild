@@ -78,10 +78,12 @@ public class UiManager : Singleton<UiManager>
     // 아웃트로 코루틴 (X축 스케일을 점점 줄여서 사라지게)
     IEnumerator WindowOutro()
     {
+        float awefrakuhg = basicduration / (InformationWindowText.text.Length*10);
         while (InformationWindowText.text.Length > 0)
         {
             InformationWindowText.text = InformationWindowText.text.Substring(0, InformationWindowText.text.Length - 1); // 마지막 글자 제거
-            yield return new WaitForSeconds(basicduration*Time.deltaTime);  // 일정 시간 대기
+            yield return new WaitForSeconds(awefrakuhg);  // 일정 시간 대기
+
         }
         InformationWindow.DOScaleX(0, 0.15f);  // 0.5초 동안 X축 스케일을 0으로 줄이기
     }
