@@ -7,55 +7,48 @@ using UnityEngine;
 public class MakeThePlayerMove : GimmickOutput
 {
     public PlayerMainController player;
-    public Animator playerAn;
+    public List<Animator> playerAn; // 여러 애니메이터들을 리스트로 참조
     public CharacterController characterController; // CharacterController 참조 추가
-    public string assetPath = "Assets/Animations/Player/moveAnimator.controller";
     public List<Transform> waypoint;
-    AnimatorController movecontroller;
+    public AnimatorController movecontroller;
     AnimatorController playeranimatorcontroller;
+    public float AnimationNum;
 
     private void Start()
     {
         SetUp();
     }
+
     void SetUp()
     {
-        //player = player.gameObject.GetComponent<PlayerMainController>();
-       // playerAn = GetComponent<Animator>();
-        //characterController = player.gameObject.GetComponent<CharacterController>(); // CharacterController 컴포넌트 참조
-        RuntimeAnimatorController runtimeAnimatorController = playerAn.runtimeAnimatorController;
-        if (runtimeAnimatorController != null)
+        if (playerAn != null && playerAn.Count > 0)
         {
-            playeranimatorcontroller = runtimeAnimatorController as AnimatorController;
-            if (playeranimatorcontroller == null)
+            foreach (var animator in playerAn)
             {
-                Debug.LogWarning("The runtimeAnimatorController is not of type AnimatorController.");
+                RuntimeAnimatorController runtimeAnimatorController = animator.runtimeAnimatorController;
+                if (runtimeAnimatorController != null)
+                {
+                    playeranimatorcontroller = runtimeAnimatorController as AnimatorController;
+                    if (playeranimatorcontroller == null)
+                    {
+                        Debug.LogWarning("The runtimeAnimatorController is not of type AnimatorController.");
+                    }
+                }
+                else
+                {
+                    Debug.LogWarning("The Animator does not have a runtimeAnimatorController assigned.");
+                }
             }
         }
         else
         {
-            Debug.LogWarning("The Animator does not have a runtimeAnimatorController assigned.");
+            Debug.LogWarning("Animator list is empty or null.");
         }
-        LoadMyAsset();
-    }
-    private void OnValidate()
-    {
-        LoadMyAsset();
     }
 
-    public void LoadMyAsset()
+    public void SetAnimationNum(float num)
     {
-        // assetPath 경로에 있는 에셋을 로드합니다
-        movecontroller = AssetDatabase.LoadAssetAtPath<AnimatorController>(assetPath);
-
-        if (movecontroller != null)
-        {
-            Debug.Log("에셋 로드 성공: " + movecontroller.name);
-        }
-        else
-        {
-            Debug.LogError("에셋 로드 실패: 경로를 확인하세요.");
-        }
+        AnimationNum = num;
     }
 
     public void Act()
@@ -70,7 +63,12 @@ public class MakeThePlayerMove : GimmickOutput
     {
         isDone = false;
         player.enabled = false;
-        playerAn.runtimeAnimatorController = movecontroller;
+
+        // 모든 애니메이터에 동일한 애니메이터 컨트롤러 적용
+        foreach (var animator in playerAn)
+        {
+            animator.runtimeAnimatorController = movecontroller;
+        }
 
         for (int i = 0; i < waypoint.Count; i++)
         {
@@ -91,10 +89,10 @@ public class MakeThePlayerMove : GimmickOutput
 
                     // 이동
                     float distance = Vector3.Distance(player.transform.position, waypoint[i].position);
-                    if (distance > 0.5f) // 목표 waypoint에 도달하지 않은 경우 이동
+                    if (distance > 0.1f) // 목표 waypoint에 도달하지 않은 경우 이동
                     {
                         Vector3 moveDirection = direction.normalized;
-                        characterController.Move(moveDirection * Time.deltaTime * 5f); // 이동 속도 조절
+                        characterController.Move(moveDirection * Time.deltaTime * 3.5f); // 이동 속도 조절
                     }
                     else
                     {
@@ -112,23 +110,32 @@ public class MakeThePlayerMove : GimmickOutput
     // 모든 waypoint를 순회한 후 실행할 로직
     void OnWaypointsComplete()
     {
-        playerAn.SetBool("isarrival", true);
+        // 모든 애니메이터에 대해 완료 애니메이션을 설정
+        foreach (var animator in playerAn)
+        {
+            animator.SetBool("isarrival", true);
+            animator.SetFloat("BlendID", AnimationNum);
+        }
+
         StartCoroutine(CheckAnimationPlayback());
     }
+
     IEnumerator CheckAnimationPlayback()
     {
         bool isAnimationPlaying = true;
 
         while (isAnimationPlaying)
         {
-            // 애니메이션의 현재 상태를 가져오기
-            AnimatorStateInfo stateInfo = playerAn.GetCurrentAnimatorStateInfo(0);
-
-            // 애니메이션이 현재 재생 중인지 확인
-            if (stateInfo.IsName("Blend Tree") && stateInfo.normalizedTime >= 1.0f)
+            // 모든 애니메이터가 완료되었는지 확인
+            
+            foreach (var animator in playerAn)
             {
-                // 애니메이션 재생이 완료되었으면
-                isAnimationPlaying = false;
+                AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+                if (stateInfo.IsName("Blend Tree") && stateInfo.normalizedTime >= 0.975f)
+                {
+                    isAnimationPlaying = false;
+                    break;
+                }
             }
 
             // 다음 프레임까지 대기
@@ -137,10 +144,17 @@ public class MakeThePlayerMove : GimmickOutput
 
         actionExit();
     }
+
     public void actionExit()
     {
         player.enabled = true;
-        playerAn.runtimeAnimatorController = playeranimatorcontroller;
+
+        // 모든 애니메이터에 원래의 애니메이터 컨트롤러를 다시 적용
+        foreach (var animator in playerAn)
+        {
+            animator.runtimeAnimatorController = playeranimatorcontroller;
+        }
+
         isDone = true;
     }
 }

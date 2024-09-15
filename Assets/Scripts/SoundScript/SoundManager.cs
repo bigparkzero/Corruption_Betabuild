@@ -7,13 +7,14 @@ public class SoundManager : Singleton<SoundManager>
     // 오디오 클립을 재생하기 위한 오디오 소스 리스트
     private List<AudioSource> audioSources = new List<AudioSource>();
 
-    public float basicvolume;
+    public float SFXvolume;
 
     // 오디오 소스 오브젝트의 수
     public int initialAudioSourceCount = 10;
 
 
     // 브금 컨트롤러
+    public float BGMvolume;
 
     public float fadeDuration = 1.0f; // 페이드 전환 시간
 
@@ -46,6 +47,8 @@ public class SoundManager : Singleton<SoundManager>
 
         activeSource = audioSource1;
         inactiveSource = audioSource2;
+
+        SetBGMvolume(BGMvolume);
     }
 
     public void SetBGMvolume(float value)
@@ -107,7 +110,7 @@ public class SoundManager : Singleton<SoundManager>
     }
     public void SetSFXVolume(float volume)
     {
-        basicvolume = volume;
+        SFXvolume = volume;
     }
 
     // 사운드를 재생하는 함수, 위치가 없으면 0,0,0에 생성
@@ -123,7 +126,7 @@ public class SoundManager : Singleton<SoundManager>
 
             // 오디오 클립 설정 및 재생
             availableSource.clip = clip;
-            availableSource.volume = volume == 0 ? basicvolume : volume;
+            availableSource.volume = volume == 0 ? SFXvolume : volume;
             availableSource.Play();
         }
         else
