@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class Timer : GimmickOutput
 {
+    public float time;
     private void Start()
     {
         isDone = false;
