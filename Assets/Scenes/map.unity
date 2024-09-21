@@ -8202,7 +8202,7 @@ PrefabInstance:
         type: 3}
       propertyPath: enemies.Array.data[0].prefab
       value: 
-      objectReference: {fileID: 5526333624395993503, guid: 29d0712e52ce3fd4fbe862fd9f0b54bc,
+      objectReference: {fileID: 1129998846140917378, guid: 2339626a69d15294286ad86471a9a973,
         type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -45546,6 +45546,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: door_h (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c4cfa76f3a8f1d646bdc6af84bb19187,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -45562,6 +45567,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1343090875}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c4cfa76f3a8f1d646bdc6af84bb19187,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1343090880}
   m_SourcePrefab: {fileID: 100100000, guid: c4cfa76f3a8f1d646bdc6af84bb19187, type: 3}
 --- !u!4 &1343090873 stripped
 Transform:
@@ -45620,6 +45629,27 @@ MonoBehaviour:
   hp: 0
   maxHp: 60
   isInvincible: 0
+--- !u!65 &1343090880
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1343090874}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 8.600399, y: 2.4174788, z: 11.132752}
+  m_Center: {x: 0.0000032122389, y: -0.0000012808155, z: 5.5663753}
 --- !u!1 &1346631659
 GameObject:
   m_ObjectHideFlags: 0
@@ -47068,7 +47098,7 @@ PrefabInstance:
         type: 3}
       propertyPath: enemies.Array.data[0].prefab
       value: 
-      objectReference: {fileID: 5526333624395993503, guid: 29d0712e52ce3fd4fbe862fd9f0b54bc,
+      objectReference: {fileID: 1129998846140917378, guid: 2339626a69d15294286ad86471a9a973,
         type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -48889,7 +48919,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1467941347
 Transform:
   m_ObjectHideFlags: 0
@@ -56033,6 +56063,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: door_h (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c4cfa76f3a8f1d646bdc6af84bb19187,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -56049,6 +56084,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1767828057}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c4cfa76f3a8f1d646bdc6af84bb19187,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1767828062}
   m_SourcePrefab: {fileID: 100100000, guid: c4cfa76f3a8f1d646bdc6af84bb19187, type: 3}
 --- !u!4 &1767828055 stripped
 Transform:
@@ -56107,6 +56146,27 @@ MonoBehaviour:
   hp: 0
   maxHp: 60
   isInvincible: 0
+--- !u!65 &1767828062
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767828056}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 8.600396, y: 2.4174752, z: 11.132748}
+  m_Center: {x: -0.00000018342229, y: 0.0000017909808, z: 5.566373}
 --- !u!1 &1767845302
 GameObject:
   m_ObjectHideFlags: 0
@@ -56919,7 +56979,7 @@ PrefabInstance:
         type: 3}
       propertyPath: enemies.Array.data[0].prefab
       value: 
-      objectReference: {fileID: 5526333624395993503, guid: 29d0712e52ce3fd4fbe862fd9f0b54bc,
+      objectReference: {fileID: 1129998846140917378, guid: 2339626a69d15294286ad86471a9a973,
         type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
