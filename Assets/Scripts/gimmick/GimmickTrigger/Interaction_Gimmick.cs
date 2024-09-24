@@ -30,7 +30,7 @@ public class Interaction_Gimmick : GimmickTrigger
 
     public Slider gaugeFillSlider;
 
-    private float currentGaugeValue = 0f;
+    [HideInInspector]public float currentGaugeValue = 0f;
     private bool isInteracting = false;
 
     private void OnEnable()
