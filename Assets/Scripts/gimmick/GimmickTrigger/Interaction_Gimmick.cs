@@ -131,7 +131,8 @@ public class Interaction_Gimmick : GimmickTrigger
         {
             InteractionImge.gameObject.SetActive(false);
             isPlayerInTrigger = false;
-            gaugeFillSlider.value = 0;
+            if(gaugeFillSlider != null)
+                gaugeFillSlider.value = 0;
         }
     }
 }
