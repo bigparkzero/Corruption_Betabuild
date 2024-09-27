@@ -93,7 +93,8 @@ public class Interaction_Gimmick : GimmickTrigger
                 }
                 if (Input.GetKeyUp(KeyCode.G))
                 {
-                    gaugeFillSlider.value = 0;
+                    if(gaugeFillSlider != null)
+                        gaugeFillSlider.value = 0;
                 }
                 break;
             default:
